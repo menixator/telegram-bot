@@ -254,10 +254,12 @@ pub enum InlineKeyboardButtonKind {
     #[serde(rename = "url")]
     Url(String), // TODO(knsd): Url?
     #[serde(rename = "callback_data")]
-    CallbackData(String), // TODO(knsd) Validate size?
-                          //  SwitchInlineQuery(String),
-                          //  SwitchInlineQueryCurrentChat(String),
-                          //  CallbackGame(CallbackGame),
+    CallbackData(String), 
+    #[serde(rename = "switch_inline_query")]
+    SwitchInlineQuery(String),
+    #[serde(rename = "switch_inline_query_current_chat")]
+    SwitchInlineQueryCurrentChat(String),
+    //CallbackGame(CallbackGame),
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize)]
