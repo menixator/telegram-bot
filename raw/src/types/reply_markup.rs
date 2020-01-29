@@ -247,6 +247,21 @@ impl InlineKeyboardButton {
             kind: InlineKeyboardButtonKind::Url(url.as_ref().to_string()),
         }
     }
+
+
+    pub fn switch_inline_query<T: AsRef<str>, U: AsRef<str>>(text: T, inline_query: U) -> Self {
+        Self {
+            text: text.as_ref().to_string(),
+            kind: InlineKeyboardButtonKind::SwitchInlineQuery(inline_query.as_ref().to_string()),
+        }
+    }
+
+    pub fn switch_inline_query_current_chat<T: AsRef<str>, U: AsRef<str>>(text: T, inline_query: U) -> Self {
+        Self {
+            text: text.as_ref().to_string(),
+            kind: InlineKeyboardButtonKind::SwitchInlineQueryCurrentChat(inline_query.as_ref().to_string()),
+        }
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize)]
